@@ -118,7 +118,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="17dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_mobile_support" />
+                    android:src="@drawable/ic_icon_material_chat_bubble_outline" />
 
             </RelativeLayout>
 
@@ -172,7 +172,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="17dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_knowledge_base" />
+                    android:src="@drawable/ic_icon_feather_book" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="17dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_status" />
+                    android:src="@drawable/ic_icon_awesome_ticket_alt" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -305,7 +305,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="15dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_mobile_support_1" />
+                    android:src="@drawable/ic_icon_metro_perm_phone_msg" />
 
                 <TextView
                     android:layout_width="wrap_content"
