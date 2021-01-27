@@ -1,0 +1,150 @@
+<resources>
+    <string name="app_name">Croyto Wallet</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="drawer_open"> drawe open</string>
+    <string name="drawer_close"> drawe close</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="wallet">Wallet</string>
+    <string name="myWallet">My Wallet</string>
+    <string name="exchange">Exchange</string>
+    <string name="profile">Profile</string>
+    <string name="security">Security</string>
+    <string name="setting">Setting</string>
+    <string name="support">Support</string>
+    <string name="dark_mode">Dark Mode </string>
+    <string name="add_ticket">Add Ticket</string>
+
+    <string name="contact_title">Contact Details</string>
+    <string name="contact_Email">Email Address</string>
+    <string name="contact_Email_Address">abc@gmail.com</string>
+    <string name="contact_Phone">Phone No.</string>
+    <string name="contact_Phone_No">9812345678</string>
+    <string name="contact_website">Website</string>
+    <string name="contact_website_address">abcDemoinduia</string>
+
+    <string name="pay_history">Wallet History</string>
+    <string name="coin_history">Coin History</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="share">Share</string>
+    <string name="logout">Logout</string>
+    <string name="other">Other</string>
+
+    <string name="razor_api_key">rzp_test_23oYrEfMJY6cVI</string>
+
+    <string name="backup">Backups</string>
+    <string name="To_fa">2FA</string>
+    <string name="passcode">Secure With Passcode</string>
+    <string name="finger">Secure With Fingerprint</string>
+    <string name="privacy">Privacy Policy</string>
+
+
+    <string name="mobile_support">Mobile Support</string>
+    <string name="knowledge">Knowledge Base</string>
+    <string name="ticket">Ticket</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="support_text">Use the options below tolearn about IMT,  </string>
+    <string name="support_text1">Solve the problem and get in touch,</string>
+    <string name="text3">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</string>
+
+    <string name="more">More</string>
+    <string name="text2">a fingerprint or digital fingerprint refers to any trace of information left by someone.</string>
+    <string name="text1">A passcode, is a memorized secret, typically a string of characters, usually used to confirm a user identity.</string>
+    <string name="text">A proper backup copy is stored in a separate system or medium, such as tape, from the primary data to protect against the possibility of data loss due to primary hardware or software failure.</string>
+
+    <string name="google2fa">Google 2FA</string>
+    <string name="email2fa">Email 2FA</string>
+    <string name="text_google2fa">Turn on Google 2FA Security to better secure your Account.</string>
+    <string name="text_email2fa">Turn on Email 2FA Security to better secure your Account.</string>
+    <string name="get_started">Get Started</string>
+    <string name="send_bitcoin">Send Bitcoin to your IMT Wallet</string>
+
+    <string name="account_balance">Account Balance</string>
+
+
+    <!--text for setting screen-->
+    <string name="notification">Notifications</string>
+    <string name="sound">Sounds</string>
+    <string name="currency">Currency</string>
+    <string name="advance">Advanced</string>
+    <string name="sync">Sync Devices</string>
+    <string name="restore">Restore Wallet</string>
+    <string name="detele">Delete Wallet</string>
+    <string name="usd">USD</string>
+    <string name="below_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna </string>
+
+    <string name="cryptoinfo">Cryptocurrency Info</string>
+    <string name="barcode_scan">Scan Any QR Code </string>
+    <string name="recieve">Receive</string>
+    <string name="scan">Scan</string>
+    <string name="balance">Balance</string>
+    <string name="add_money">Top Up</string>
+    <string name="pay">Pay</string>
+    <string name="add">Enter Amount </string>
+    <string name="add1">Add Money</string>
+    <string name="complete">Complete</string>
+    <string name="add_text">Before adding money into your wallet up, you accept our Terms &amp; Privacy policy</string>
+    <string name="add_trem_and_condition">accept our Terms &amp; Privacy policy</string>
+    <string name="your_barcode">Your Wallet Address</string>
+    <string name="tab_barcode">Tab Wallet address to Copy</string>
+    <string name="barcode">Barcode Addrees</string>
+    <!--text for Login and Signup screen-->
+    <string name="login">Login</string>
+    <string name="sign_up">Signup</string>
+    <string name="hello">Hello!!</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="re_password">Repeat Password</string>
+    <string name="referal_code">Referral Code</string>
+    <string name="phone">Phone No.</string>
+    <string name="username">Username</string>
+    <string name="Nice">Hello,nice to meet you!</string>
+    <string name="hello_nice">Hello, nice to meet you!</string>
+    <string name="crate">Create your Account</string>
+    <string name="enter_referral">Enter Your Referral Code</string>
+    <string name="your_referral">Your Referral Code</string>
+    <string name="ready">Ready to go </string>
+    <string name="not_referral">I Dont Have Referral Code</string>
+    <string name="next">Next</string>
+    <string name="forget">Forgot My Password</string>
+    <string name="forget_password">Forgot Password</string>
+    <string name="otp_send">OTP  receive in your email account</string>
+    <string name="comfirm">Confirm email address / OTP</string>
+    <string name="enter_otp">Enter Your OTP</string>
+    <string name="not_otp">I Do not Receive OTP Send Again</string>
+    <string name="change_password">Change Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_passcode">Create Your Passcode </string>
+    <string name="confirm_passcode">Confirm Your Passcode </string>
+    <string name="enter_passcode">Enter Your Passcode </string>
+    <string name="done">Done</string>
+    <string name="transaction">Transaction Pin</string>
+    <string name="Secure_wallet">Secure wallet</string>
+    <string name="c_transaction">Confirm Transaction Pin</string>
+    <string name="enter_pin">Enter Transaction Pin</string>
+    <string name="mnemonic">Copy to Mnemonic</string>
+    <string name="enter_mnemonic">Enter Mnemonic</string>
+    <string name="add_more">Add More</string>
+    <string name="overview">Overview</string>
+    <string name="fortext">Please save the mnemonic for life time. and the requirment of this Mnemonic need at the time of the Forget password. </string>
+
+
+    <string name="Gmail_Text">Google Authentication</string>
+    <string name="Emailtext"> verify your Email id </string>
+    <string name="GoogleAuthentication">Google Authentication</string>
+    <string name="createaccount">Account is created</string>
+    <string name="googleauth">Enter Google Authentication </string>
+    <string name="skip">Skip</string>
+    <string name="Addverification">Add Verification</string>
+    <string name="sucessfully">Successfully</string>
+    <string name="passcode_text">Enter phone screen lock pattern, PIN, password or Fingerprint</string>
+    <string name="passcode_detail">Unlock Crypto Wallet</string>
+    <string name="knwoledge_Text_heading">This sd dfask msadj msad mads poad wdt</string>
+    <string name="knowlege_Description_Demo">Hello I am Demo Text that show thew implementation of the layout.Now Its show the the Demo of this layout</string>
+   <string name="payout_text1">Enter Email OTP</string>
+    <string name="payout_text2">Enter Gmail OTP</string>
+</resources>
