@@ -233,7 +233,9 @@
                 android:id="@+id/backup1"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:padding="1dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/group16188" />

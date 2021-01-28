@@ -16,13 +16,13 @@
     <string name="dark_mode">Dark Mode </string>
     <string name="add_ticket">Add Ticket</string>
 
+    <string name="contact_website_address">abcDemoinduia</string>
     <string name="contact_title">Contact Details</string>
     <string name="contact_Email">Email Address</string>
     <string name="contact_Email_Address">abc@gmail.com</string>
     <string name="contact_Phone">Phone No.</string>
     <string name="contact_Phone_No">9812345678</string>
     <string name="contact_website">Website</string>
-    <string name="contact_website_address">abcDemoinduia</string>
 
     <string name="pay_history">Wallet History</string>
     <string name="coin_history">Coin History</string>
