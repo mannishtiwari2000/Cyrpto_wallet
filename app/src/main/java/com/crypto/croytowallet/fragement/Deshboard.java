@@ -1,10 +1,13 @@
 package com.crypto.croytowallet.fragement;
 
 
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +52,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.app.Activity.RESULT_OK;
+import static android.content.Context.KEYGUARD_SERVICE;
+import static android.content.Context.MODE_PRIVATE;
+import static androidx.core.content.ContextCompat.getSystemService;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,6 +68,8 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
     Crypto_currencyInfo crypto_currencyInfo;
     LinearLayout lytscan,lytPay,lytWalletBalance,lytaddMoney;
     SharedPreferences sharedPreferences;
+
+
 
     public Deshboard() {
         // Required empty public constructor
@@ -73,8 +83,12 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
       View view= inflater.inflate(R.layout.fragment_deshboard, container, false);
         cryptoInfoRecyclerView = view.findViewById(R.id.deshboardRecyclerView);
 
-
-
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myKey1", MODE_PRIVATE);
+//        String value = sharedPreferences.getString("value","");
+//        if(value.equals("passcode"))
+//        {
+//            authenticateApp();
+//        }
         lytscan=view.findViewById(R.id.lytScan);
         lytPay=view.findViewById(R.id.lytPay);
         lytWalletBalance=view.findViewById(R.id.lytwallet);
@@ -87,7 +101,7 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
         crptoInfoModels=new ArrayList<CrptoInfoModel>();
 
 
-        sharedPreferences=getActivity().getSharedPreferences("symbols", Context.MODE_PRIVATE);
+        sharedPreferences=getActivity().getSharedPreferences("symbols", MODE_PRIVATE);
 
 
         CryptoInfoRecyclerView();
@@ -278,4 +292,84 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
         editor.commit();
 
     }
+//    private void authenticateApp() {
+//        //Get the instance of KeyGuardManager
+//        KeyguardManager keyguardManager = (KeyguardManager)getSystemService(KEYGUARD_SERVICE);
+//
+//        //Check if the device version is greater than or equal to Lollipop(21)
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            //Create an intent to open device screen lock screen to authenticate
+//            //Pass the Screen Lock screen Title and Description
+//            //  Intent i = keyguardManager.createConfirmDeviceCredentialIntent(getResources().getString(R.string.unlock), getResources().getString(R.string.confirm_pattern));
+//            Intent i = keyguardManager.createConfirmDeviceCredentialIntent(getResources().getString(R.string.passcode_text), getResources().getString(R.string.passcode_detail));
+//            try {
+//                //Start activity for result
+//                startActivityForResult(i, LOCK_REQUEST_CODE);
+//            } catch (Exception e) {
+//
+//                //If some exception occurs means Screen lock is not set up please set screen lock
+//                //Open Security screen directly to enable patter lock
+//                Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+//                try {
+//
+//                    //Start activity for result
+//                    startActivityForResult(intent, SECURITY_SETTING_REQUEST_CODE);
+//                } catch (Exception ex) {
+//
+//                    //If app is unable to find any Security settings then user has to set screen lock manually
+//
+//                    Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }
+//    }
+
+//    @Override
+ /*   public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case LOCK_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    //If screen lock authentication is success update text
+
+                    Toast.makeText(getContext(), "Successfull", Toast.LENGTH_LONG).show();
+                } else {
+                    //If screen lock authentication is failed update text
+                    Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
+
+                }
+                break;
+            case SECURITY_SETTING_REQUEST_CODE:
+                //When user is enabled Security settings then we don't get any kind of RESULT_OK
+                //So we need to check whether device has enabled screen lock or not
+                if (isDeviceSecure()) {
+                    //If screen lock enabled show toast and start intent to authenticate user
+                    Toast.makeText(getContext(), "done", Toast.LENGTH_SHORT).show();
+                    authenticateApp();
+                } else {
+                    //If screen lock is not enabled just update text
+                    Toast.makeText(getContext(), "Not done", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+        }
+    }
+
+    *//**
+     * method to return whether device has screen lock enabled or not
+     **//*
+    private boolean isDeviceSecure() {
+        KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+
+        //this method only work whose api level is greater than or equal to Jelly_Bean (16)
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && keyguardManager.isKeyguardSecure();
+
+        //You can also use keyguardManager.isDeviceSecure(); but it requires API Level 23
+
+    }
+
+    //On Click of button do authentication again
+    public void authenticateAgain(View view) {
+        authenticateApp();
+    }*/
 }

@@ -35,7 +35,7 @@
 
     <string name="backup">Backups</string>
     <string name="To_fa">2FA</string>
-    <string name="passcode">Secure With Passcode</string>
+    <string name="passcode">Enable Mobile Security</string>
     <string name="finger">Secure With Fingerprint</string>
     <string name="privacy">Privacy Policy</string>
 
@@ -50,7 +50,7 @@
 
     <string name="more">More</string>
     <string name="text2">a fingerprint or digital fingerprint refers to any trace of information left by someone.</string>
-    <string name="text1">A passcode, is a memorized secret, typically a string of characters, usually used to confirm a user identity.</string>
+    <string name="text1">A Mobile Security, is a memorized secret, typically a string of characters, usually used to confirm a user identity.</string>
     <string name="text">A proper backup copy is stored in a separate system or medium, such as tape, from the primary data to protect against the possibility of data loss due to primary hardware or software failure.</string>
 
     <string name="google2fa">Google 2FA</string>
