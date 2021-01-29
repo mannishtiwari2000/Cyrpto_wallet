@@ -1,8 +1,10 @@
 package com.crypto.croytowallet.fragement;
 
 
+import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -16,8 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +36,8 @@ import com.crypto.croytowallet.Activity.Graph_layout;
 import com.crypto.croytowallet.Activity.WalletBalance;
 import com.crypto.croytowallet.Activity.WalletReceive;
 import com.crypto.croytowallet.Activity.WalletScan;
+import com.crypto.croytowallet.Adapter.Coin_Adapter;
+import com.crypto.croytowallet.Adapter.Coin_Recyler_Adapter;
 import com.crypto.croytowallet.Adapter.Crypto_currencyInfo;
 import com.crypto.croytowallet.Interface.CryptoClickListner;
 import com.crypto.croytowallet.Model.CrptoInfoModel;
@@ -50,6 +56,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
@@ -68,8 +75,8 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
     Crypto_currencyInfo crypto_currencyInfo;
     LinearLayout lytscan,lytPay,lytWalletBalance,lytaddMoney;
     SharedPreferences sharedPreferences;
-
-
+    private List itemList;
+RecyclerView recyclerView;
 
     public Deshboard() {
         // Required empty public constructor
@@ -97,6 +104,13 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
         lytPay.setOnClickListener(this);
         lytWalletBalance.setOnClickListener(this);
         lytaddMoney.setOnClickListener(this);
+         recyclerView=view.findViewById(R.id.RecyclerView_dashboard);
+        itemList = new ArrayList<>();
+       Coin_Recyler_Adapter adapter = new Coin_Recyler_Adapter(itemList);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
 
         crptoInfoModels=new ArrayList<CrptoInfoModel>();
 
@@ -372,4 +386,5 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
     public void authenticateAgain(View view) {
         authenticateApp();
     }*/
+
 }

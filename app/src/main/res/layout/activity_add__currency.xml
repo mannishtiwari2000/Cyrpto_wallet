@@ -7,4 +7,5 @@
     android:background="@color/white1"
     tools:context=".Activity.Add_Currency">
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -147,4 +147,5 @@
     <string name="knowlege_Description_Demo">Hello I am Demo Text that show thew implementation of the layout.Now Its show the the Demo of this layout</string>
    <string name="payout_text1">Enter Email OTP</string>
     <string name="payout_text2">Enter Gmail OTP</string>
+    <string name="transaction_text">No Transaction Histroy</string>
 </resources>

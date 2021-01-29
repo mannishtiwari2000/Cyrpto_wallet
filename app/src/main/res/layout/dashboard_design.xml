@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/backup"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="10dp"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/group_blue" />
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="86dp"
+                android:layout_height="41dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/Amount_Coin"
+                android:padding="10dp"
+                app:srcCompat="@mipmap/path2060" />
+
+            <TextView
+                android:id="@+id/Amount_Coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/backup"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="15dp"
+                android:padding="1dp"
+                android:text="$2000.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/toolbar_text_color"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Name_Coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Amount_Coin"
+                android:layout_alignLeft="@id/backup"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:justificationMode="inter_word"
+                android:padding="1dp"
+                android:text="Ethereum"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/Current_amount_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:fontFamily="sans-serif-black"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/Change_Coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Current_amount_coin"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="-1.0024"
+                android:textAlignment="center"
+                android:textColor="#8bd780" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
