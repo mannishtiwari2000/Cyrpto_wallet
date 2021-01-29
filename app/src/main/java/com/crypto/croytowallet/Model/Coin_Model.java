@@ -5,12 +5,25 @@ public class Coin_Model {
     String Coin_name;
     String Coin_Change;
     String Coin_Current_Change;
+    String Image;
 
-    public Coin_Model(String coin_amount, String coin_name, String coin_Change, String coin_Current_Change) {
+    public Coin_Model(String coin_amount, String coin_name, String coin_Change, String coin_Current_Change, String image) {
         Coin_amount = coin_amount;
         Coin_name = coin_name;
         Coin_Change = coin_Change;
         Coin_Current_Change = coin_Current_Change;
+        Image = image;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public Coin_Model() {
     }
 
     public String getCoin_amount() {

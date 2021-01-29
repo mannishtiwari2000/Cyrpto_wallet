@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+
         android:padding="10dp"
         android:layout_marginBottom="10dp"
         app:cardBackgroundColor="@color/card_background"
@@ -19,14 +19,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center">
 
             <ImageView
-                android:id="@+id/backup"
+                android:id="@+id/Currency_icon"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_margin="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:padding="1dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/group_blue" />
@@ -48,9 +52,9 @@
                 android:id="@+id/Amount_Coin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/backup"
-                android:layout_marginLeft="38dp"
-                android:layout_marginTop="15dp"
+                android:layout_alignLeft="@id/Currency_icon"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="10dp"
                 android:padding="1dp"
                 android:text="$2000.00"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -63,8 +67,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Amount_Coin"
-                android:layout_alignLeft="@id/backup"
-                android:layout_marginLeft="40dp"
+                android:layout_alignLeft="@id/Currency_icon"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="-5dp"
                 android:layout_marginRight="20dp"
                 android:justificationMode="inter_word"
                 android:padding="1dp"
@@ -87,12 +92,15 @@
                 android:textColor="#000" />
 
             <TextView
-                android:id="@+id/Change_Coin"
+                android:id="@+id/Coin_Rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Current_amount_coin"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="9dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
                 android:layout_toEndOf="@+id/imageView2"
