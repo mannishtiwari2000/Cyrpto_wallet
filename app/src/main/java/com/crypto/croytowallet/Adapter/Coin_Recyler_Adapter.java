@@ -1,5 +1,6 @@
 package com.crypto.croytowallet.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class Coin_Recyler_Adapter extends RecyclerView.Adapter<Coin_Recyler_Adapter.Viewholder> {
     ArrayList<Coin_Model> coin_models;
-    Context context;
+
 
     public Coin_Recyler_Adapter(ArrayList<Coin_Model> coin_models) {
         this.coin_models = coin_models;

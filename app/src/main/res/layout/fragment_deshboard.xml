@@ -226,6 +226,7 @@
 
 
     <TextView
+        android:id="@+id/Add_more_Currency"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"

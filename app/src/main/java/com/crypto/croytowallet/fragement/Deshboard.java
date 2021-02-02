@@ -33,6 +33,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crypto.croytowallet.Activity.Add_Currency;
 import com.crypto.croytowallet.Activity.Graph_layout;
 import com.crypto.croytowallet.Activity.WalletBalance;
 import com.crypto.croytowallet.Activity.WalletReceive;
@@ -75,10 +76,11 @@ public class Deshboard extends Fragment implements View.OnClickListener, CryptoC
     RecyclerView cryptoInfoRecyclerView;
     RequestQueue requestQueue;
     Crypto_currencyInfo crypto_currencyInfo;
-    LinearLayout lytscan,lytPay,lytWalletBalance,lytaddMoney;
+    LinearLayout lytscan, lytPay, lytWalletBalance, lytaddMoney;
     SharedPreferences sharedPreferences;
-   ArrayList<Coin_Model> item_data;
-RecyclerView recyclerView;
+    ArrayList<Coin_Model> item_data;
+    TextView add_currency;
+    RecyclerView recyclerView;
 
     public Deshboard() {
         // Required empty public constructor
@@ -89,57 +91,63 @@ RecyclerView recyclerView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      View view= inflater.inflate(R.layout.fragment_deshboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_deshboard, container, false);
         cryptoInfoRecyclerView = view.findViewById(R.id.deshboardRecyclerView);
-
+        add_currency = view.findViewById(R.id.Add_more_Currency);
 //        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("myKey1", MODE_PRIVATE);
 //        String value = sharedPreferences.getString("value","");
 //        if(value.equals("passcode"))
 //        {
 //            authenticateApp();
 //        }
-        lytscan=view.findViewById(R.id.lytScan);
-        lytPay=view.findViewById(R.id.lytPay);
-        lytWalletBalance=view.findViewById(R.id.lytwallet);
-        lytaddMoney=view.findViewById(R.id.lytaddMoney);
+        lytscan = view.findViewById(R.id.lytScan);
+        lytPay = view.findViewById(R.id.lytPay);
+        lytWalletBalance = view.findViewById(R.id.lytwallet);
+        lytaddMoney = view.findViewById(R.id.lytaddMoney);
         lytscan.setOnClickListener(this);
         lytPay.setOnClickListener(this);
         lytWalletBalance.setOnClickListener(this);
         lytaddMoney.setOnClickListener(this);
-         recyclerView=view.findViewById(R.id.RecyclerView_dashboard);
+        recyclerView = view.findViewById(R.id.RecyclerView_dashboard);
         item_data = new ArrayList<Coin_Model>();
 
-        crptoInfoModels=new ArrayList<CrptoInfoModel>();
+        crptoInfoModels = new ArrayList<CrptoInfoModel>();
 
+        add_currency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Add_Currency.class));
+                getActivity().finish();
+            }
+        });
 
-        sharedPreferences=getActivity().getSharedPreferences("symbols", MODE_PRIVATE);
+        sharedPreferences = getActivity().getSharedPreferences("symbols", MODE_PRIVATE);
 
-Coin_setdata();
+        Coin_setdata();
         CryptoInfoRecyclerView();
-    //    checkBalance();
+        //    checkBalance();
 
-    return view;
+        return view;
     }
 
-    public void Coin_setdata()
-    {
-        String url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum&order=market_cap_desc&sparkline=false&price_change_percentage=24h";
-        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+    public void Coin_setdata() {
+        String url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum&order=market_cap_desc&sparkline=false&price_change_percentage=24h";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONArray jsonArray=new JSONArray(response);
-                    for (int i=0;i<=jsonArray.length();i++){
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i = 0; i <= jsonArray.length(); i++) {
 
-                        Coin_Model data_coin=new Coin_Model();
-                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                        String id=jsonObject1.getString("id");
-                        String image=jsonObject1.getString("image");
-                        String name=jsonObject1.getString("name");
-                        String rate=jsonObject1.getString("price_change_percentage_24h");
-                        String price=jsonObject1.getString("current_price");
-                        String high_price=jsonObject1.getString("high_24h");
-                        String low_price=jsonObject1.getString("low_24h");
+                        Coin_Model data_coin = new Coin_Model();
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String id = jsonObject1.getString("id");
+                        String image = jsonObject1.getString("image");
+                        String name = jsonObject1.getString("name");
+                        String rate = jsonObject1.getString("price_change_percentage_24h");
+                        String price = jsonObject1.getString("current_price");
+                        String high_price = jsonObject1.getString("high_24h");
+                        String low_price = jsonObject1.getString("low_24h");
 
                         data_coin.setCoin_name(name);
                         data_coin.setCoin_amount(price);
@@ -165,7 +173,7 @@ Coin_setdata();
 //                cryptoInfoRecyclerView.setAdapter(crypto_currencyInfo);
 
                 Coin_Recyler_Adapter adapter = new Coin_Recyler_Adapter(item_data);
-                RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
+                RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                 recyclerView.setLayoutManager(mLayoutManager1);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(adapter);
@@ -184,7 +192,7 @@ Coin_setdata();
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), ""+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "" + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue = Volley.newRequestQueue(getContext());
@@ -192,25 +200,26 @@ Coin_setdata();
 
 
     }
-    public void CryptoInfoRecyclerView(){
-        String url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether%2Cripple%2Clitecoin&order=market_cap_desc&sparkline=false&price_change_percentage=24h";
-        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
+    public void CryptoInfoRecyclerView() {
+        String url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether%2Cripple%2Clitecoin&order=market_cap_desc&sparkline=false&price_change_percentage=24h";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONArray jsonArray=new JSONArray(response);
-                    for (int i=0;i<=jsonArray.length();i++){
-                        CrptoInfoModel  crptoInfoModel1= new CrptoInfoModel();
-                        Coin_Model data_coin=new Coin_Model();
-                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                        String id=jsonObject1.getString("id");
-                        String symbol =jsonObject1.getString("symbol");
-                        String image=jsonObject1.getString("image");
-                        String name=jsonObject1.getString("name");
-                        String rate=jsonObject1.getString("price_change_percentage_24h");
-                        String price=jsonObject1.getString("current_price");
-                        String high_price=jsonObject1.getString("high_24h");
-                        String low_price=jsonObject1.getString("low_24h");
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i = 0; i <= jsonArray.length(); i++) {
+                        CrptoInfoModel crptoInfoModel1 = new CrptoInfoModel();
+                        Coin_Model data_coin = new Coin_Model();
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String id = jsonObject1.getString("id");
+                        String symbol = jsonObject1.getString("symbol");
+                        String image = jsonObject1.getString("image");
+                        String name = jsonObject1.getString("name");
+                        String rate = jsonObject1.getString("price_change_percentage_24h");
+                        String price = jsonObject1.getString("current_price");
+                        String high_price = jsonObject1.getString("high_24h");
+                        String low_price = jsonObject1.getString("low_24h");
 
 //                        data_coin.setCoin_amount(price);
 //                        data_coin.setCoin_Change(rate);
@@ -236,8 +245,8 @@ Coin_setdata();
                     e.printStackTrace();
                 }
 
-                crypto_currencyInfo = new Crypto_currencyInfo(crptoInfoModels,getContext(),Deshboard.this::onCryptoItemClickListener );
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
+                crypto_currencyInfo = new Crypto_currencyInfo(crptoInfoModels, getContext(), Deshboard.this::onCryptoItemClickListener);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                 cryptoInfoRecyclerView.setLayoutManager(mLayoutManager);
                 cryptoInfoRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 cryptoInfoRecyclerView.setAdapter(crypto_currencyInfo);
@@ -262,7 +271,7 @@ Coin_setdata();
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), ""+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "" + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue = Volley.newRequestQueue(getContext());
@@ -270,57 +279,57 @@ Coin_setdata();
 
     }
 
- public void checkBalance(){
-     UserData user = SharedPrefManager.getInstance(getContext()).getUser();
-     String id=user.getId();
-     String url="http://13.233.136.56:8080/api/user/totalAirDrop/"+id;
+    public void checkBalance() {
+        UserData user = SharedPrefManager.getInstance(getContext()).getUser();
+        String id = user.getId();
+        String url = "http://13.233.136.56:8080/api/user/totalAirDrop/" + id;
 
 //     balance=getView().findViewById(R.id.balance);
 
-     StringRequest stringRequest =new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-         @Override
-         public void onResponse(String response) {
-          //   Toast.makeText(getContext(), ""+response, Toast.LENGTH_SHORT).show();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //   Toast.makeText(getContext(), ""+response, Toast.LENGTH_SHORT).show();
 
-             try {
-                 JSONObject object=new JSONObject(response);
-                 String   checkBalance=object.getString("airDrop");
+                try {
+                    JSONObject object = new JSONObject(response);
+                    String checkBalance = object.getString("airDrop");
 
-                 TextView textView=getActivity().findViewById(R.id.balance);
+                    TextView textView = getActivity().findViewById(R.id.balance);
 
-                 textView.setText("$"+checkBalance+".00");
-              //   Toast.makeText(getContext(), ""+checkBalance, Toast.LENGTH_SHORT).show();
-             } catch (JSONException e) {
-                 e.printStackTrace();
-             }
-         }
-     }, new Response.ErrorListener() {
-         @Override
-         public void onErrorResponse(VolleyError error) {
+                    textView.setText("$" + checkBalance + ".00");
+                    //   Toast.makeText(getContext(), ""+checkBalance, Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-         }
-     }) {
-         @Override
-         protected Map<String, String> getParams() throws AuthFailureError {
-             Map<String, String> params = new HashMap<>();
-            /* params.put("_id", id);*/
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                /* params.put("_id", id);*/
 
                 return params;
-         }
+            }
 
-         @Override
-         public Map<String, String> getHeaders() throws AuthFailureError {
-             Map<String, String> headers = new HashMap<String, String>();
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<String, String>();
 
-             // headers.put("Authorization", "Bearer "+Token);
+                // headers.put("Authorization", "Bearer "+Token);
 
-             return headers;
-         }
-     };
+                return headers;
+            }
+        };
 
-     requestQueue = Volley.newRequestQueue(getContext());
-     requestQueue.add(stringRequest);
- }
+        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+    }
 
     @Override
     public void onResume() {
@@ -339,7 +348,7 @@ Coin_setdata();
             break;
     }*/
 
-      if (id == R.id.lytScan) {
+        if (id == R.id.lytScan) {
             deepChangeTextColor(1);
             startActivity(new Intent(getContext(), WalletScan.class));
             getActivity().finish();
@@ -353,12 +362,12 @@ Coin_setdata();
             startActivity(new Intent(getContext(), WalletBalance.class));
             getActivity().finish();
 
-        }else if (id == R.id.lytaddMoney) {
-          deepChangeTextColor(4);
-         startActivity(new Intent(getContext(), Top_up_Money.class));
-          getActivity().finish();
+        } else if (id == R.id.lytaddMoney) {
+            deepChangeTextColor(4);
+            startActivity(new Intent(getContext(), Top_up_Money.class));
+            getActivity().finish();
 
-      }
+        }
 
     }
 
@@ -386,12 +395,12 @@ Coin_setdata();
     @Override
     public void onCryptoItemClickListener(int position) {
         Intent intent = new Intent(getContext(), Graph_layout.class);
-        intent.putExtra("position",position);
+        intent.putExtra("position", position);
         startActivity(intent);
 
-        String result=crptoInfoModels.get(position).getSymbol();
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("symbol1",result);
+        String result = crptoInfoModels.get(position).getSymbol();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("symbol1", result);
         editor.commit();
 
     }
